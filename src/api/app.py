@@ -36,7 +36,7 @@ def main():
     elif input_type == "Audio":
         audio = st.file_uploader("Upload your audio file:", type=["wav", "mp3", "m4a"])
 
-    if st.button("Summarize"):
+    if st.button("Report Result"):
         try:
             if input_type == "Text" and text:
                 logging.info("Processing text input.")
@@ -73,7 +73,7 @@ def main():
                 summary = "Invalid input. Please provide a valid file or text."
                 logging.warning("Invalid input type provided.")
 
-            st.text_area("Summary Result:", summary, height=200)
+            st.text_area("Report Result:", summary, height=200)
         except Exception as e:
             logging.error(f"Error during summarization: {e}")
             st.error("An error occurred during summarization. Please check the logs for more details.")
