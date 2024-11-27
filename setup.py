@@ -5,10 +5,10 @@ with open("README.md", "r", encoding="utf-8") as f:
     
 __version__ = "0.1.0"
 
-REPO_NAME = "genai-text-summarization"
-AUTHOR_USER_NAME = "rrrreddy"
-SRC_REPO = "genai-text-summarizer"
-AUTHOR_EMAIL = "rrrreddy07@gmail.com"
+REPO_NAME = "genai-lab-report-analyzer"
+AUTHOR_USER_NAME = "mdasad3617"
+SRC_REPO = "lab-report-analyzer"
+AUTHOR_EMAIL = "mdasad3617@gmail.com"
 SHORT_DESCRIPTION = "This is a simple project to summarize text using transformers and Gradio."
 
 setuptools.setup(
@@ -33,7 +33,7 @@ setuptools.setup(
     python_requires=">=3.9",
     entry_points={
         'console_scripts': [
-            'genai-text-summarizer=api.app:main',
+            'lab-report-analyzer=api.app:main',
         ],
     },
 )

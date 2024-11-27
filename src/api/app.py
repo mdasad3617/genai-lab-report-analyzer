@@ -1,4 +1,4 @@
-# src/api/app.py
+
 import gradio as gr
 import logging
 from models.summarizer import TextSummarizer
@@ -15,12 +15,12 @@ def main():
         logging.info(f"Received request to summarize {input_type} input.")
         logging.info(f"File: {file}, Text: {text}, Audio: {audio}")
         try:
-            if input_type == 0 and text:  # Text
+            if input_type == 0 and text:  
                 logging.info("Processing text input.")
                 processed_text = handle_text_input(text)
                 summary = summarizer.summarize(processed_text)
                 logging.info("Text input processed successfully.")
-            elif input_type in [1, 2, 3] and file:  # Text File, PDF, DOCX
+            elif input_type in [1, 2, 3] and file:  
                 if input_type == 1:
                     logging.info(f"Processing text file: {file.name}")
                     processed_text = read_text_file(file.name)
@@ -75,18 +75,18 @@ def main():
             gr.Textbox(label="Or enter text here", placeholder="Type your text here..."),
             gr.Audio(type="filepath", label="Or record audio here")
         ],
-        outputs=gr.Textbox(label="Summarized Text", placeholder="The summary will appear here..."),
-        title="GenAI Text Summarizer",
-        description="Upload a text file, a PDF, a DOCX, an audio file, or type in text to summarize. Select the appropriate input type and provide the input.",
-        theme="huggingface",  # Apply a Hugging Face theme for a modern look
-        allow_flagging="never"  # Disable flagging for simplicity
+        outputs=gr.Textbox(label="Report Result", placeholder="The report will appear here..."),
+        title="GenAI Lab Report Analyzer",
+        description="Upload a text file, a PDF, a DOCX, an audio file, or type in text to report summarize. Select the appropriate input type and provide the input.",
+        theme="huggingface",  
+        allow_flagging="never"  
     )
 
     iface.launch()
 
 
 if __name__ == "__main__":
-    logging.info(f"Starting GenAI Text Summarizer.")
+    logging.info(f"Starting GenAI Lab Report Analyzer.")
     main()
-    logging.info(f"Closing GenAI Text Summarizer.")
+    logging.info(f"Closing GenAI Lab Report Analyzer.")
     
