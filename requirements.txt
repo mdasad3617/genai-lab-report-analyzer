@@ -1,5 +1,5 @@
 # Project dependencies.
-gradio
+streamlit
 transformers
 torch
 pdfplumber
