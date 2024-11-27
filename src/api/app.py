@@ -5,7 +5,7 @@ from services.text_input_handler import handle_text_input
 from services.file_input_handler import read_text_file, read_pdf_file, read_docx_file
 from services.audio_input_handler import audio_to_text
 from utils.logging_utils import setup_logging
-
+import time
 
 def main():
     # Setup logging
@@ -80,6 +80,10 @@ def main():
 
     logging.info("Closing GenAI Lab Report Analyzer with Streamlit.")
 
-
 if __name__ == "__main__":
-    main()
+    while True:
+        try:
+            main()
+        except Exception as e:
+            logging.error(f"App crashed with error: {e}. Restarting...")
+            time.sleep(5)  # Wait for 5 seconds before restarting
